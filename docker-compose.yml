@@ -1,0 +1,48 @@
+version: '3'
+services:
+  nginx-server:
+    container_name: nginx-server
+    restart: always
+    build:
+      dockerfile: dev.Dockerfile
+      context: nginx
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+    ports:
+      - '80:80'
+
+  react-front:
+    container_name: react-front
+    build:
+      dockerfile: dev.Dockerfile
+      context: front
+    #env_file:
+       #- .env
+    environment:
+      - WDS_SOCKET_PORT:0
+    volumes:
+      - /usr/app/node_modules
+      - ./front:/usr/app
+    command: ["npm", "run", "start"]
+
+  node-back:
+    container_name: node-back
+    build:
+      context: back
+      dockerfile: dev.Dockerfile
+    #env_file:
+       #- .env
+    volumes:
+      - /usr/app/node_modules
+      - ./back:/usr/app
+    command: ["npm", "run", "start"]
+
+  # postgres:
+  #   build:
+  #     context: ./PostgresDb
+  #     dockerfile: dev.Dockerfile
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./PostgresDb/dev/data:/var/lib/postgresql/data

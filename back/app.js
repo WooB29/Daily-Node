@@ -1,7 +1,18 @@
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 const app = express();
-
+const port = 3000;
+/*
+mongoose.connect('mongodb://localhost:27017/daily', {useNewUrlParser: true}, (err) => {
+    if(err){
+        console.log(`Error on DB Connection:${err}`);
+    }
+    else{
+        console.log("Connected to DB");
+    }
+});
+*/
 app.use(cors());
 
 app.use(express.json());
@@ -14,11 +25,11 @@ const todoList = [{
     done: false,
 }];
 
-app.get('/api/todo', (req, res) => {
+app.get('/todo', (req, res) => {
     res.json(todoList);
 });
 
-app.post('/api/todo', (req, res) => {
+app.post('/todo', (req, res) => {
     const { text, done } = req.body;
     console.log('req.body : ', req.body);
     todoList.push({
@@ -29,6 +40,6 @@ app.post('/api/todo', (req, res) => {
     return res.send('Success!!');
 });
 
-app.listen(4000, () => {
-    console.log('server listening on port');
+app.listen((port), () => {
+    console.log(`server started at ${port}`);
 });

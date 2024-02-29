@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-const SERVER_URL = "http://localhost:4000/api/todo";
+const SERVER_URL = "/api/todo";
 
 function App() {
   const [todoList, setTodoList] = useState(null);
