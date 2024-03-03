@@ -1,54 +1,102 @@
 const express = require('express');
-//const cors = require('cors');
-//const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const pgdb = require('./src/db/postgres');
+const Todo = require('./src/models/todo');
 
-const { Pool } = require('pg');
-const pgdb = new Pool({
-    user: 'postgres',
-    password: '1234',
-    database: 'daily',
-    host: 'postgres',
-});
 
-pgdb.on('connect', (client) => {
-    client
-    .query("CREATE TABLE IF NOT EXISTS todoList (id SERIAL PRIMARY KEY, text VARCHAR(255), done BOOLEAN)")
-    .catch(err => console.log(err));
-});
 
-/*
-mongoose.connect('mongodb://localhost:27017/daily', {useNewUrlParser: true}, (err) => {
-    if(err){
-        console.log(`Error on DB Connection:${err}`);
+
+app.use(cors());
+
+app.post('/login', async (req, res) => {
+    try{
+        const {email, password} = req.body;
+        const resp = await pgdb.query('SELECT * FROM member where email = $1 and password = $2',[email,password]);
+        if (resp.rows.length > 0){
+            res.json(200).json({ success : true});
+        }
+        else{
+            res.status(409).json({error : '아이디 비밀번호가 일치하지 않습니다.'});
+        }
     }
-    else{
-        console.log("Connected to DB");
+    catch(error){
+        console.error('Error inserting member:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
-*/
-//app.use(cors());
 
-// let id = 2;
-// const todoList = [{
-//     id: 1,
-//     text: '할일 1',
-//     done: false,
-// }];
+app.post('/signup', async (req, res) => {
+    try {
+        const { email, password, name } = req.body;
+        const resp = await pgdb.query('SELECT * FROM member where email = $1',[email]);
+        if (resp.rows.length > 0){
+            res.status(409).json({ error: '이미 존재하는 이메일입니다.' });
+        }
+        else{
+            const query = {
+                text: 'INSERT INTO member (email, password, name) VALUES($1, $2, $3) RETURNING *',
+                values: [email, password, name]
+            };
+            await pgdb.query(query);
+            res.status(200).json({ success : true});
+        }
+    } 
+    catch (error) {
+        console.error('Error inserting member:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+app.get('/connect', async (req, res) => {
+    try{
+        res.status(200).json({ success : true});
+    }
+    catch{
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 app.get('/todo', async (req, res) => {
     try {
+        const todoList = await Todo.find();
+        res.status(200).json(todoList);
+    } catch (error) {
+        console.error('Error fetching todo list:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+app.post('/todo', async (req, res) => {
+    try {
+        const { text, done } = req.body;
+        
+        const newTodo = new Todo({
+            text: text,
+            done: done
+        });
+        await newTodo.save();
+        
+        res.status(200).json(newTodo);
+    } 
+    catch (error) {
+        console.error('Error inserting todo:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+/*
+app.get('/todo', async (req, res) => {
+    try {
         const todoList = await pgdb.query('SELECT * FROM todoList');
-        res.json(todoList.rows);
+        res.status(200).json(todoList.rows);
     } 
     catch (error) {
         console.error('Error fetching todo list:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
-    //res.json(todoList);
 });
 
 app.post('/todo', async (req, res) => {
@@ -67,16 +115,8 @@ app.post('/todo', async (req, res) => {
         console.error('Error inserting todo:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
-    // const { text, done } = req.body;
-    // console.log('req.body : ', req.body);
-    // todoList.push({
-    //     id: ++id,
-    //     text,
-    //     done,
-    // });
-    // return res.send('Success!!');
 });
-
+*/
 app.listen((port), () => {
     console.log(`server started at ${port}`);
 });

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import axios from "axios";
 const SERVER_URL = "/api/login";
@@ -35,33 +35,49 @@ const Input = styled.input`
 `;
 
 const SignIn = () => {
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [disabled, setDisabled] = useState(true);
   const [errorMessage, setErrorMessage ] = useState('');
-
-  useEffect(() => {
-      setDisabled(!(id && password && !errorMessage));
-  }, [id, password, errorMessage]);
+  const navigate = useNavigate();
 
   const _onSubmitHandler = async (e) => {
     e.preventDefault();
-    await axios.post(SERVER_URL, {
-      id: id,
-      password: password
-    }).then((response) => {
-      if (response === 'success') {
-        alert("로그인 성공");
-        <Link to="/home"/>
+    try{
+      const response = await axios.post(SERVER_URL, {
+        email: email,
+        password: password
+      });
+
+      if (response.status === 200){
+        alert('로그인 성공');
+        navigate('/home');
       }
-      else {
-        setErrorMessage('아이디 비밀번호를 확인해주세요.');
+
+    } catch (error) {
+      if(error.response.status === 409){
+        setErrorMessage('일치하는 회원정보가 없습니다.');
       }
-    });
+      else{
+        setErrorMessage('로그인 중 오류가 발생하였습니다.');
+      }
+      console.error('로그인 중 오류 발생:', error);
+    }
   };
 
+  const _onTestHendler = async (e) => {
+    e.preventDefault();
+    try{
+      await axios.get('/api/connect');
+      setErrorMessage('연결성공');
+    }
+    catch (error) {
+      setErrorMessage('연결안됨');
+      console.error('연결 중 오류 발생:', error);
+    }
+  }
+
   const _onIdHandler = (e) => {
-    setId(e.currentTarget.value);
+    setEmail(e.currentTarget.value);
   };
 
   const _onPasswordHandler = (e) => {
@@ -70,17 +86,19 @@ const SignIn = () => {
 
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-      <Form>
-          <Input type='text' value={id} onChange={_onIdHandler} placeholder='Id'/>
+      <Form onSubmit={_onSubmitHandler}>
+          <Input type='email' value={email} onChange={_onIdHandler} placeholder='Email'/>
           <Input type='password' value={password} onChange={_onPasswordHandler} placeholder='PassWord'/>
           <ErrorText>{errorMessage}</ErrorText>
-          <Button disabled={disabled} onSubmit={_onSubmitHandler}>
-              Login
-          </Button>
+          <Button>Login</Button>
       </Form>
       <Link to="/signup" style={{marginTop: '20px'}}>
         <label>회원가입</label>
       </Link>
+      <Form onSubmit={_onTestHendler}>
+        <Button>연결테스트</Button>
+      </Form>
+      
     </div>
   )
 }

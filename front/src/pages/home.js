@@ -10,7 +10,12 @@ function App() {
   // axios
   const fetchData = async () => {
     const response = await axios.get(SERVER_URL);
-    setTodoList(response.data);
+    try{
+      setTodoList(response.data);
+    }
+    catch(err){
+      console.log(err);
+    }
   };
   useEffect(() => {fetchData()}, []);
 
@@ -19,7 +24,13 @@ function App() {
     const text = e.target.text.value;
     const done = e.target.done.checked;
     await axios.post(SERVER_URL, { text, done });
-    fetchData();
+    try{
+      fetchData();
+    }
+    catch(err){
+      console.log(err);
+    }
+    
   }
 
   
