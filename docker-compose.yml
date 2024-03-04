@@ -1,4 +1,9 @@
 version: '3'
+
+networks:
+  daily-network:
+    driver: bridge
+
 services:
   nginx-server:
     container_name: nginx-server
@@ -10,9 +15,15 @@ services:
       - ./nginx/logs:/var/log/nginx
     ports:
       - '80:80'
+    networks:
+      - daily-network
 
   react-front:
     container_name: react-front
+    ports: 
+      - '3000:3000'
+    networks:
+      - daily-network
     build:
       dockerfile: dev.Dockerfile
       context: front
@@ -25,6 +36,10 @@ services:
 
   node-back:
     container_name: node-back
+    ports: 
+      - '4000:4000'
+    networks:
+      - daily-network
     build:
       context: back
       dockerfile: dev.Dockerfile
@@ -37,10 +52,14 @@ services:
 
   mongo:
     container_name: mongo-db
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    networks:
+      - daily-network
     build:
       context: ./mongDb
       dockerfile: dev.Dockerfile
-    restart: always
     #env_file:
        #- .env
     volumes:
@@ -48,19 +67,40 @@ services:
 
   postgres:
     container_name: postgres-db
-    build:
-      context: ./postgresDb
-      dockerfile: dev.Dockerfile
     restart: unless-stopped
     ports: 
       - '5432:5432'
+    networks:
+      - daily-network
+    build:
+      context: ./postgresDb
+      dockerfile: dev.Dockerfile
     env_file:
       - .env
     volumes:
       - postgres-data:/var/lib/postgresql/data
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    ports:
+      - '8888:80'
+    networks:
+      - daily-network
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
+    env_file:
+      - .env
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+   
 
 volumes:
+  mongo-data:
+    #driver: local
   postgres-data:
     #driver: local
-  mongo-data:
+  pgadmin-data:
     #driver: local
