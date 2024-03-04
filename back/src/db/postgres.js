@@ -1,8 +1,9 @@
 const { Pool } = require('pg');
 const pgdb = new Pool({
-    user: 'postgres',
-    password: '1234',
-    database: 'daily',
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    port: 5432,
     host: 'postgres',
 });
 
@@ -14,6 +15,10 @@ pgdb.on('connect', (client) => {
     client
     .query("CREATE TABLE IF NOT EXISTS todoList (id SERIAL PRIMARY KEY, text VARCHAR(255), done BOOLEAN)")
     .catch(err => console.log(err));
+});
+
+pgdb.on('error', () =>{
+    console.log('disconnect from database');
 });
 
 

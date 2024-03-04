@@ -9,7 +9,10 @@ const todoSchema = new Schema({
     done: {
         type: Boolean,
         default: false
-    }
+    },
+},
+{
+    versionKey: false,
 });
 
 module.exports = mongoose.model('Todo', todoSchema);

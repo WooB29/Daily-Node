@@ -3,11 +3,12 @@ import axios from "axios";
 const SERVER_URL = "/api/todo";
 
 function App() {
-  const [todoList, setTodoList] = useState(null);
-  //const [todoList, setTodoList] = useState([]);
+  //const [todoList, setTodoList] = useState(null);
+  const [todoList, setTodoList] = useState([]);
   //{todoList.map((todo) => (
 
   // axios
+ /* 
   const fetchData = async () => {
     const response = await axios.get(SERVER_URL);
     try{
@@ -17,14 +18,15 @@ function App() {
       console.log(err);
     }
   };
+
   useEffect(() => {fetchData()}, []);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const text = e.target.text.value;
     const done = e.target.done.checked;
-    await axios.post(SERVER_URL, { text, done });
     try{
+      await axios.post(SERVER_URL, { text, done });
       fetchData();
     }
     catch(err){
@@ -32,16 +34,18 @@ function App() {
     }
     
   }
-
+*/
   
+  // fetch
 
-  /* fetch
-  const fetchData = () => {
-    fetch(SERVER_URL)
-    .then((response) => response.json())
-    .then((data) => setTodoList(data));
+  const fetchData = async () => {
+    const response = await fetch(SERVER_URL);
+    const data = await response.json();
+    setTodoList(data);
   }
   
+  useEffect(() => {fetchData()}, []);
+
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -58,7 +62,7 @@ function App() {
       }),
     }).then(() => fetchData());
   }
-  */
+
   return (
     <div className="App">
       <h1>TODO LIST</h1>
@@ -67,7 +71,7 @@ function App() {
         <input name="done" type="checkbox" />
         <input type="submit" value="추가" />
       </form>
-      {todoList?.map((todo) => (
+      {todoList.map((todo) => (
         <div key={todo.id} style={{display: 'flex'}}>
           <div>{todo.id}</div>
           <div>{todo.text}</div>
