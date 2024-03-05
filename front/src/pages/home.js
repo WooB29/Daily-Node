@@ -1,67 +1,69 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-const SERVER_URL = "/api/todo";
+import { getTokenFromLocal } from "../utils/token";
+import { useNavigate } from 'react-router-dom';
+
+const SERVER_URL = "/api";
 
 function App() {
-  //const [todoList, setTodoList] = useState(null);
   const [todoList, setTodoList] = useState([]);
-  //{todoList.map((todo) => (
+  const navigate = useNavigate();
+  const Token = getTokenFromLocal();
 
-  // axios
- /* 
   const fetchData = async () => {
-    const response = await axios.get(SERVER_URL);
     try{
-      setTodoList(response.data);
+      if(Token !== null) {
+        const response = await fetch(`${SERVER_URL}/mytodo`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${Token.accessToken}`,
+          },
+          body: JSON.stringify({
+            email: Token.userId,
+          }),
+        });
+        if(response.status === 401){
+          navigate('/login');
+          return;
+        }
+        const data = await response.json();
+        setTodoList(data);
+      }
+      else{
+        navigate('/login');
+      }
     }
     catch(err){
       console.log(err);
     }
   };
 
-  useEffect(() => {fetchData()}, []);
-
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    const text = e.target.text.value;
-    const done = e.target.done.checked;
-    try{
-      await axios.post(SERVER_URL, { text, done });
-      fetchData();
-    }
-    catch(err){
-      console.log(err);
-    }
-    
-  }
-*/
-  
-  // fetch
-
-  const fetchData = async () => {
-    const response = await fetch(SERVER_URL);
-    const data = await response.json();
-    setTodoList(data);
-  }
-  
-  useEffect(() => {fetchData()}, []);
-
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const text = e.target.text.value;
     const done = e.target.done.checked;
-    fetch(SERVER_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text,
-        done,
-      }),
-    }).then(() => fetchData());
-  }
+    try{
+      fetch(`${SERVER_URL}/uploadtodo`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${Token.accessToken}`,
+        },
+        body: JSON.stringify({
+          email: Token.userId,
+          text,
+          done,
+        }),
+      }).then(() => fetchData());
+    }
+    catch(err){
+      console.log(err);
+    }
+  };
 
   return (
     <div className="App">
