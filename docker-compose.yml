@@ -32,9 +32,9 @@ services:
     volumes:
       - /usr/app/node_modules
       - ./front:/usr/app
-    # environment:
-    #   - NODE_ENV=development
-    #   - CHOKIDAR_USEPOLLING=true
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
     command: ["npm", "run", "start"]
 
   node-back1:
@@ -104,7 +104,7 @@ services:
     container_name: pgadmin
     restart: unless-stopped
     ports:
-      - '8888:80'
+      - '8001:80'
     networks:
       - daily-network
     environment:
@@ -114,6 +114,34 @@ services:
       - .env
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+
+  jenkins:
+    container_name: jenkins
+    restart: unless-stopped
+    ports:
+      - '8888:8080'
+      - '50000:50000'
+    networks:
+      - daily-network
+    build:
+      context: ./jenkins
+      dockerfile: dev.Dockerfile
+    user: root
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - jenkins-data:/root/.ssh
+
+  # ngrok:
+  #   image: ngrok/ngrok
+  #   container_name: ngrok
+  #   restart: unless-stopped
+  #   ports:
+  #     - '4040:4040'
+  #   networks:
+  #     - daily-network
+  #   command: ['sh', '-c', 'ngrok http nginx-server:80']
+  #   volumes:
+  #     - ngrok-data:/etc/ngrok.yml
    
 
 volumes:
@@ -123,3 +151,7 @@ volumes:
     #driver: local
   pgadmin-data:
     #driver: local
+  jenkins-data:
+    #driver: local
+  # ngrok-data:
+    # driver: local

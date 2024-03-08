@@ -59,7 +59,7 @@ exports.refresh = async (req, res) => {
             return res.status(200).json({ accessToken: newAccessToken, refreshToken });
         }
     } else {
-        return res.status(400).json({ message: 'Access token is not expired' });
+        return res.status(401).json({ message: 'Access token is not expired' });
     }
 };
 

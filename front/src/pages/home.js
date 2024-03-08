@@ -42,7 +42,7 @@ function App() {
     fetchData();
   }, []);
 
-  const onSubmitHandler = (e) => {
+  const _onSubmitHandler = (e) => {
     e.preventDefault();
     const text = e.target.text.value;
     const done = e.target.done.checked;
@@ -65,10 +65,14 @@ function App() {
     }
   };
 
+  const _onLogOutHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="App">
       <h1>TODO LIST</h1>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={_onSubmitHandler}>
         <input name="text" />
         <input name="done" type="checkbox" />
         <input type="submit" value="추가" />
@@ -80,6 +84,7 @@ function App() {
           <div>{todo.done ? 'Y' : 'N'}</div>
         </div>
       ))}
+      <button onClick={_onLogOutHandler}>로그아웃</button>
     </div>
   );
 }
