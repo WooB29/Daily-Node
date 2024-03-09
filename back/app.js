@@ -17,7 +17,9 @@ app.get('/refresh', user.refresh);
 
 app.post('/signup', user.signUp);
 
-
+app.get('/test', (req, res) => {
+    res.status(200).json({ message: "hi"});
+});
 
 app.post('/mytodo', todo.listTodo);
 

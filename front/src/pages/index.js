@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import { verifyTokens } from '../utils/token';
-import { useNavigate } from 'react-router-dom';
+import React, {useEffect} from "react";
+import { Text, View } from "react-native";
+import { verifyTokens } from "../utils/token";
 
-const Index = () => {
-    const navigate = useNavigate();
-
-    useEffect(()=>{
-        verifyTokens(navigate);
-    },[navigate])
+const Index = ({navigation}) => {
     
-  return (
-    <div>
-        <h1>Hello</h1>
-    </div>
+    useEffect(() =>
+    {
+        verifyTokens(navigation);
+    },[])
+    
+    return(
+        <View style ={{padding: 50}}>
+            <Text style={{padding: 10, fontSize: 42}}>
+                INDEX
+            </Text>
+        </View>
     );
 }
 

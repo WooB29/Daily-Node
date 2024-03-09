@@ -18,24 +18,24 @@ services:
     networks:
       - daily-network
 
-  react-front:
-    container_name: react-front
-    ports: 
-      - '3000:3000'
-    networks:
-      - daily-network
-    build:
-      context: front
-      dockerfile: dev.Dockerfile
-    env_file:
-       - .env
-    volumes:
-      - /usr/app/node_modules
-      - ./front:/usr/app
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-    command: ["npm", "run", "start"]
+  # react-front:
+  #   container_name: react-front
+  #   ports: 
+  #     - '3000:3000'
+  #   networks:
+  #     - daily-network
+  #   build:
+  #     context: front
+  #     dockerfile: dev.Dockerfile
+  #   env_file:
+  #      - .env
+  #   volumes:
+  #     - /usr/app/node_modules
+  #     - ./front:/usr/app
+  #   environment:
+  #     - NODE_ENV=development
+  #     - CHOKIDAR_USEPOLLING=true
+  #   command: ["npm", "run", "start"]
 
   node-back1:
     container_name: node-back1

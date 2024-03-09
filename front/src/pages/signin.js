@@ -1,83 +1,71 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { styled } from 'styled-components';
-import { getTokens } from '../utils/token';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import styled from 'styled-components/native';
+import Input from '../components/input';
+import Button from '../components/button';
+import { Alert } from 'react-native';
+import { getTokens } from "../utils/token";
 
-const Button = styled.button`
-  background-color: black;
-  color : white;
-  padding : 10px;
-  border-radius: 5px;
-  cursor : pointer;
+const Container = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items : center;
+    background-color: "#FFF";
+    padding: 20px;
 `;
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+const SignIn = ({navigation}) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const passwordRef = useRef();
+    const insets = useSafeAreaInsets();
 
-const ErrorText = styled.label`
-    align-items: flex-start;
-    width: 100%;
-    height: 20px;
-    margin-bottom: 10px;
-    line-height: 20px;
-    color: red;
-`;
+    const _handleEmailChange = email => {
+        setEmail(email);
+    };
 
-const Input = styled.input`
-  padding : 5px;
-  margin : 10px 0;
-  border-radius: 5px;
-`;
+    const _handlePasswordChange = password => {
+        setPassword(password);
+    };
 
-const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage ] = useState('');
-  const navigate = useNavigate();
+    const _onPressLogin = () => {
+        Alert.alert('Login','press');
+    };
 
-  const _onSubmitHandler = async (e) => {
-    e.preventDefault();
-    try {
-        const result = await getTokens(email, password);
-        if (result === null) {
-            navigate('/home');
-        } else {
-            setErrorMessage(result);
-        }
-    } catch (error) {
-        console.error('Login error:', error);
-    }
-    
-  };
+    const _onPressSignUp = () => {
+        navigation.navigate('SignUpPage');
+    };
 
-  const _onSignUpHandler = (e) => {
-    e.preventDefault();
-    navigate('/signup');
-  }
-
-  const _onIdHandler = (e) => {
-    setEmail(e.currentTarget.value);
-  };
-
-  const _onPasswordHandler = (e) => {
-      setPassword(e.currentTarget.value);
-  };
-
-  return (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-      <Form onSubmit={_onSubmitHandler}>
-          <Input type='email' value={email} onChange={_onIdHandler} placeholder='Email'/>
-          <Input type='password' value={password} onChange={_onPasswordHandler} placeholder='PassWord'/>
-          <ErrorText>{errorMessage}</ErrorText>
-          <Button>Login</Button>
-      </Form>
-      <Button onClick={_onSignUpHandler}>회원가입</Button>
-    </div>
-  )
+    return(
+        <Container insets={insets}>
+            <Input 
+                label="Email"
+                value={ email }
+                onChangeText={_handleEmailChange}
+                onSubmitEditing = {() => passwordRef.current.focus()}
+                placeholder="Email"
+                retrunKeyType="next"
+            />
+            <Input 
+                ref={passwordRef}
+                label="password"
+                value={ password }
+                onChangeText = {_handlePasswordChange}
+                onSubmitEditing = {_onPressLogin}
+                placeholder="Password"
+                retrunKeyType="done"
+                isPassword
+            />
+            <Button 
+                title="Login" 
+                onPress={_onPressLogin}
+            />
+            <Button
+                title="Signup"
+                onPress={_onPressSignUp}
+            />
+        </Container>
+    );
 }
 
-export default SignIn
+export default SignIn;

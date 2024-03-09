@@ -1,21 +1,26 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Index from './pages/index';
-import Signup from './pages/signup';
-import SignIn from './pages/signin';
-import Home from './pages/home';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from "@react-navigation/native";
 
+import IndexPage from './pages/index';
+import SignInPage from './pages/signin';
+import SignUpPage from './pages/signup';
+import HomePage from './pages/home';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Index />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/login' element={<SignIn />} />
-        <Route path='/signup' element={<Signup />} />
-      </Routes>
-    </BrowserRouter>
-  );
+const App = ({}) => {
+    const Stack = createStackNavigator();
+    const navigationRef = React.useRef(null);
+
+    return(
+        <NavigationContainer ref={navigationRef}>
+            <Stack.Navigator>
+                <Stack.Screen name='IndexPage' component={IndexPage} options={{headerShown: false}}/>
+                <Stack.Screen name='SignInPage' component={SignInPage} options={{headerShown: false}}/>
+                <Stack.Screen name='SignUpPage' component={SignUpPage} options={{headerShown: true}}/>
+                <Stack.Screen name='HomePage' component={HomePage} options={{headerShown: true}}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
 
 export default App;
