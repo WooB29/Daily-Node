@@ -2,20 +2,25 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 
+const TRANSPARENT = 'transparent';
+
 const Container = styled.TouchableOpacity`
+    background-color: ${({ isFilled, disabled }) => 
+    isFilled ? '#86A2FF' : disabled ? 'lightgray' : 'transparent'};
     align-items: center;
-    border-radius: 4px;
-    width: 30%;
+    border-radius: 7px;
+    width: 100%;
     margin: 10px;
     padding : 10px;
-    border : 1px solid black;
+    opacity: ${({ disabled }) => disabled ? 0.5 : 1};
 `;
 
 const Title = styled.Text`
     height: 30px;
     line-height: 30px;
-    font-size: 16px;
-    color: 'black';
+    font-size: 17px;
+    color: ${({ isFilled }) => 
+        isFilled ? 'white' : 'black'};
 `;
 
 const Button = ({ containerStyle, title, onPress, isFilled, disabled}) => {

@@ -10,8 +10,7 @@ const pool = new Pool({
 pool.on('connect', (client) => {
     client.query(`
         CREATE TABLE IF NOT EXISTS member (
-            id SERIAL PRIMARY KEY,
-            email VARCHAR(255) UNIQUE NOT NULL,
+            email VARCHAR(255) PRIMARY KEY,
             password VARCHAR(255) not null,
             name VARCHAR(255) not null,
             authtoken VARCHAR(5000) null
@@ -30,9 +29,9 @@ pool.on('connect', (client) => {
         CREATE TABLE IF NOT EXISTS member_todoList (
             id SERIAL PRIMARY KEY,
             todoList_id INTEGER,
-            member_id INTEGER,
+            member_email VARCHAR(255),
             FOREIGN KEY (todoList_id) REFERENCES todoList(id),
-            FOREIGN KEY (member_id) REFERENCES member(id)
+            FOREIGN KEY (member_email) REFERENCES member(email)
         )
     `).catch(err => console.error('Error creating member_todoList table:', err));
 
@@ -42,6 +41,32 @@ pool.on('connect', (client) => {
             token varchar(5000) not null
         )
     `).catch(err => console.error('Error creating token table:', err));
+
+    client.query(`
+        CREATE TABLE IF NOT EXISTS MEMBER_SUBJECT (
+            id SERIAL PRIMARY KEY,
+            member_email VARCHAR(255),
+            subject VARCHAR(255),
+            FOREIGN KEY (member_email) REFERENCES member(email)
+        )
+    `).catch(err => console.error('Error creating member_subject table:'+err));
+
+    client.query(`
+        CREATE TABLE IF NOT EXISTS SUBJECT_STUDYLIST(
+            id SERIAL PRIMARY KEY,
+            title VARCHAR(255),
+            content VARCHAR(255),
+            subject_id intiger,
+            FOREIGN KEY (subject_id) REFERENCES subject(id)
+        )
+    `).catch(err => console.error('Error creating subject_studylist table:'+err));
+
+    client.query(`
+        CREATE TABLE IF NOT EXISTS MEMBER_STUDYLIST(
+            id SERIAL PRIMARY KEY,
+            
+        )
+    `).catch(err => console.error('Error creating member_studylist table:'+err));
 });
 
 pool.on('error', () =>{

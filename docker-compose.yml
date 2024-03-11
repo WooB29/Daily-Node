@@ -7,7 +7,7 @@ networks:
 services:
   nginx-server:
     container_name: nginx-server
-    restart: always
+    restart: unless-stopped
     build:
       dockerfile: dev.Dockerfile
       context: nginx

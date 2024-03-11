@@ -12,9 +12,7 @@ app.use(cors({
 }));
 
 app.post('/login', user.logIn);
-
 app.get('/refresh', user.refresh);
-
 app.post('/signup', user.signUp);
 
 app.get('/test', (req, res) => {
@@ -22,8 +20,9 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/mytodo', todo.listTodo);
-
 app.post('/uploadtodo', todo.uploadTodo);
+app.patch('/todoDone/:id', todo.todoDone);
+app.delete('/todoDelete', todo.todoDelete);
 
 app.listen((port), () => {
     console.log(`server started at ${port}`);

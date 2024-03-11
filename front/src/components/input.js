@@ -5,18 +5,18 @@ import PropTypes from 'prop-types';
 const Container = styled.View`
     flex-direction: colum;
     width: 100%;
-    amrgin: 10px 0;
+    margin: 10px 0;
 `;
 
 const Label = styled.Text`
-    font-size : 14px;
+    font-size : 16px;
     font-weight: 600;
-    margin-bottom: 6px;
-    color: 'blue';
+    margin: 10px 0;
+    color: ${({ isFocused }) => (isFocused ? '#041213' : '#899495' )};
 `;
 
 const StyledTextInput = styled.TextInput.attrs({
-    placeholderTextColor: 'gray',
+    placeholderTextColor: '#ccc',
 })`
     padding : 20px 10px;
     font-size: 16px;

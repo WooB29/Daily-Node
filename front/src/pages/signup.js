@@ -1,8 +1,9 @@
-import React, {useState, useRef, useEffect, useContext } from "react";
+import React, {useState, useRef, useEffect } from "react";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import styled from "styled-components/native";
 import Input from '../components/input';
 import Button from '../components/button';
-import { Alert } from 'react-native';
+import {signup} from '../utils/user';
 
 const Container = styled.View`
     flex: 1;
@@ -12,13 +13,15 @@ const Container = styled.View`
     padding : 40px 20px;
 `;
 
+
 const ErrorText = styled.Text`
     align-items: flex-start;
+    font-weight: bold;
     width: 100%;
     height: 20px;
     margin-bottom: 10px;
     line-height: 20px;
-    color: 'red';
+    color: red;
 `;
 
 const SignUp = ({navigation}) => {
@@ -33,6 +36,10 @@ const SignUp = ({navigation}) => {
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     const didMountRef = useRef();
+    const isEmailValid = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
     useEffect(() => {
         if(didMountRef.current){
@@ -41,6 +48,8 @@ const SignUp = ({navigation}) => {
                 _errorMessage = 'Please enter your name.';
             } else if (!email) {
                 _errorMessage = 'Please enter your eamil.';
+            } else if (!isEmailValid(email)) {
+                _errorMessage = 'Please enter a valid email address.';
             } else if (password.length < 4){
                 _errorMessage = 'The password must contain 4 characters at least.';
             } else if (password !== passwordConfirm) {
@@ -63,59 +72,60 @@ const SignUp = ({navigation}) => {
 
 
     const _onPressSignup = () => {
-        Alert.alert('Signup','press');
+        signup(email, password, name, navigation);
     }
 
     return(
-        <Container>
-            <Input 
-                label="Name"
-                value={name}
-                onChangeText={text => setName(text)}
-                onSubmitEditing={() => {
-                    setName(name.trim());
-                    emailRef.current.focus();
-                }}
-                onBlur={() => setName(name.trim())}
-                placeholder="Name"
-                retrunKeyType="next"
-            />
-            <Input 
-                ref={emailRef}
-                label="Email"
-                value={email}
-                onChangeText={text => setEmail(text)}
-                onSubmitEditing={() => passwordRef.current.focus()}
-                placeholder="Email"
-                retrunKeyType="next"
-            />
-            <Input 
-                ref={passwordRef}
-                label="Password"
-                value={password}
-                onChangeText={text => setPassword(text)}
-                onSubmitEditing={() => passwordConfirmRef.current.focus()}
-                placeholder="Password"
-                retrunKeyType="done"
-                isPassword
-            />
-            <Input 
-                ref={passwordConfirmRef}
-                label="Password Confirm"
-                value={passwordConfirm}
-                onChangeText={text => setPasswordConfirm(text)}
-                onSubmitEditing={_onPressSignup}
-                placeholder="Password"
-                retrunKeyType="done"
-                isPassword
-            />
-            <ErrorText>{errorMessage}</ErrorText>
-            <Button
-                title="Signup"
-                onPress={_onPressSignup}
-                disabled={disabled}
-            />
-        </Container>
+        <KeyboardAwareScrollView extraScrollHeight={20}>
+            <Container>
+                <Input 
+                    label="Name"
+                    value={name}
+                    onChangeText={text => setName(text)}
+                    onSubmitEditing={() => {
+                        setName(name.trim());
+                        emailRef.current.focus();
+                    }}
+                    onBlur={() => setName(name.trim())}
+                    placeholder="Name"
+                    retrunKeyType="next"
+                />
+                <Input 
+                    ref={emailRef}
+                    label="Email"
+                    value={email}
+                    onChangeText={text => setEmail(text)}
+                    onSubmitEditing={() => passwordRef.current.focus()}
+                    placeholder="Email"
+                    retrunKeyType="next"
+                />
+                <Input 
+                    ref={passwordRef}
+                    label="Password"
+                    value={password}
+                    onChangeText={text => setPassword(text)}
+                    onSubmitEditing={() => passwordConfirmRef.current.focus()}
+                    placeholder="Password"
+                    retrunKeyType="done"
+                    isPassword
+                />
+                <Input 
+                    ref={passwordConfirmRef}
+                    label="Password Confirm"
+                    value={passwordConfirm}
+                    onChangeText={text => setPasswordConfirm(text)}
+                    placeholder="Password"
+                    retrunKeyType="done"
+                    isPassword
+                />
+                <ErrorText>{errorMessage}</ErrorText>
+                <Button
+                    title="Signup"
+                    onPress={_onPressSignup}
+                    disabled={disabled}
+                />
+            </Container>
+        </KeyboardAwareScrollView>
     );
     
 }

@@ -36,31 +36,31 @@ exports.logIn = async (req, res) => {
 };
 
 exports.refresh = async (req, res) => {
-    if (!req.headers.authorization || !req.headers.refresh) {
-        return res.status(400).json({ message: 'Access token and refresh token are needed for refresh' });
-    }
-
-    const accessToken = req.headers.authorization.split(' ')[1];
-    const refreshToken = req.headers.refresh;
-
-    const authResult = tokenUtils.verify(accessToken);
-    const decoded = jwt.decode(accessToken);
-
-    if (!decoded) {
-        return res.status(401).json({ message: '권한없음' });
-    }
-
-    if (authResult.ok === false && authResult.message === 'jwt expired') {
-        const refreshResult = await tokenUtils.refreshVerify(refreshToken, decoded.id);
-        if (!refreshResult) {
-            return res.status(401).json({ message: '다시 로그인해주세요.' });
-        } else {
-            const newAccessToken = tokenUtils.makeToken({ id: decoded.id });
-            return res.status(200).json({ accessToken: newAccessToken, refreshToken });
+    if (req.headers["authorization"] && req.headers["refresh"]){
+        const accessToken = req.headers["authorization"].split(" ")[1];
+        const refreshToken = req.headers["refresh"];
+        const authResult = tokenUtils.verify(accessToken);
+        const decoded = jwt.decode(accessToken);
+        if (!decoded) {
+            return res.status(401).json({ message: '권한없음' });
         }
-    } else {
-        return res.status(401).json({ message: 'Access token is not expired' });
+        if (authResult.ok === false && authResult.message === "jwt expired") {
+            const refreshResult = await tokenUtils.refreshVerify(refreshToken, decoded.id);
+            if (refreshResult === false) {
+                return res.status(401).json({ message: '다시 로그인해주세요.' });
+            } else {
+                const newAccessToken = tokenUtils.makeToken({ id: decoded.id });
+                return res.status(200).json({ accessToken: newAccessToken, refreshToken });
+            }
+        } 
+        else {
+            return res.status(400).json({ message: 'Acess token is not expired!' });
+        }
     }
+    else{
+        return res.status(401).json({ message: 'Access token and refresh token are need for refresh!' });
+    }
+
 };
 
 exports.signUp = async (req, res) => {
