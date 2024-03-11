@@ -1,7 +1,7 @@
 const pgdb = require('../utils/postgres');
 const jwt = require('jsonwebtoken');
 
-exports.userEmail = (req) => {
+const userEmailCheck = (req) => {
     const accessToken = req.headers["authorization"].split(" ")[1];
     if(!accessToken){
         return null;
@@ -11,28 +11,16 @@ exports.userEmail = (req) => {
 };
 
 exports.listTodo = async (req, res) => {
+    
     try {
-        const accessToken = req.headers["authorization"].split(" ")[1];
-        if(!accessToken){
+        const userEmail = userEmailCheck(req);
+        if(!userEmail){
             return res.status(401).json({ message: 'Access token is needed for refresh' });
         }
-        const decoded = jwt.decode(accessToken);
-        const userEmail = decoded.id;
-        if(!userEmail){
-            return res.status(401).json({message: 'Access token is needed for refresh' });
-        }
-        const memberQuery = {
-            text: 'SELECT * FROM member where email = $1',
-            values: [userEmail]
-        };
-        const memberResult = await pgdb.query(memberQuery);
-        if (memberResult.rows.length === 0){
-            return res.status(401).json({message: '회원정보를 찾을 수 없습니다.'});
-        }
-        const member_email = memberResult.rows[0].email;
+
         const todoListQuery = {
             text: 'SELECT t.* FROM todoList t JOIN member_todolist mt ON t.id = mt.todoList_id WHERE mt.member_email = $1',
-            values: [member_email]
+            values: [userEmail]
         }
         const todoListResult = await pgdb.query(todoListQuery);
         return res.status(200).json(todoListResult.rows);
@@ -45,21 +33,10 @@ exports.listTodo = async (req, res) => {
 
 exports.uploadTodo = async (req, res) => {
     try {
-        const accessToken = req.headers["authorization"].split(" ")[1];
-        if(!accessToken){
+        const userEmail = userEmailCheck(req);
+        if(!userEmail){
             return res.status(401).json({ message: 'Access token is needed for refresh' });
         }
-        const decoded = jwt.decode(accessToken);
-        const userEmail = decoded.id;
-        const memberQuery = {
-            text: 'SELECT * FROM member where email = $1',
-            values: [userEmail]
-        };
-        const memberResult = await pgdb.query(memberQuery);
-        if (memberResult.rows.length === 0){
-            return res.status(401).json({message: '회원정보를 찾을 수 없습니다.'});
-        }
-        const member_email = memberResult.rows[0].email;
 
         const { text, done } = req.body;
         const todoQuery = {
@@ -71,12 +48,10 @@ exports.uploadTodo = async (req, res) => {
 
         const memberTodoQuery = {
             text: 'INSERT INTO member_todolist (todoList_id, member_email) VALUES($1, $2)',
-            values: [todo_id, member_email]
+            values: [todo_id, userEmail]
         };
         await pgdb.query(memberTodoQuery);
-        
-        const resp = await pgdb.query('SELECT * FROM todoList WHERE id = $1', [todo_id]);
-        return res.status(200).json(resp.rows);
+        return res.status(200).json({message : 'todo upload'});
     } 
     catch (error) {
         console.error('Error inserting todo:', error);
@@ -86,6 +61,9 @@ exports.uploadTodo = async (req, res) => {
 
 exports.todoDone = async (req, res) => {
     try{
+        if(!userEmailCheck(req)){
+            return res.status(401).json({ message: 'Access token is needed for refresh' });
+        }
         const id = req.params.id;
         const {done} = req.body;
         await pgdb.query('UPDATE todoList SET done = $1 WHERE id = $2', [done, id]);
@@ -99,13 +77,10 @@ exports.todoDone = async (req, res) => {
 
 exports.todoDelete = async (req, res) => {
     try{
-        const { id } = req.body;
-        const accessToken = req.headers["authorization"].split(" ")[1];
-        if(!accessToken){
+        const userEmail = userEmailCheck(req);
+        if(!userEmail){
             return res.status(401).json({ message: 'Access token is needed for refresh' });
         }
-        const decoded = jwt.decode(accessToken);
-        const userEmail = decoded.id;
         await pgdb.query('DELETE FROM member_todolist WHERE member_email = $1 AND todoList_id = $2', [userEmail, id]);
         await pgdb.query('DELETE FROM todoList WHERE id = $1', [id]);
         return res.status(200).json({message: 'todo deleted'});

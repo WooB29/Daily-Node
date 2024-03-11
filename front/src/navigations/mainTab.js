@@ -21,10 +21,10 @@ const TabBarIcon = ({ focused, name, onPress }) => {
 
 
 
-const MainTab = () => {
+const MainTab = ({navigation}) => {
 
     const _onPressAdd = () => {
-        console.log('onPressAdd');
+        navigation.navigate('AddListPage');
     };
 
     return(

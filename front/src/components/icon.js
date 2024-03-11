@@ -22,3 +22,14 @@ export const DeleteIcon = ({onPress}) => {
         />
     );
 };
+
+export const AddIcon = ({onPress}) => {
+
+    return(
+        <MaterialIcons
+            name='add'
+            size={30}
+            onPress={onPress}
+        />
+    );
+};

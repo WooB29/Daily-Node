@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const user = require('./src/controller/user');
 const todo = require('./src/controller/todo');
+const list = require('./src/controller/list');
 
 app.use(cors({
     origin: '*',
@@ -23,6 +24,9 @@ app.post('/mytodo', todo.listTodo);
 app.post('/uploadtodo', todo.uploadTodo);
 app.patch('/todoDone/:id', todo.todoDone);
 app.delete('/todoDelete', todo.todoDelete);
+
+app.get('/myStudyList', list.getLists);
+app.get('/mySubjectList', list.mySubjectList);
 
 app.listen((port), () => {
     console.log(`server started at ${port}`);

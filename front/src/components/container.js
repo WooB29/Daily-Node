@@ -21,3 +21,12 @@ export const ListContainer = styled.View`
     opacity: ${({done}) => 
     done ? 0.3 : 1 };
 `;
+
+export const TouchContainer = styled.TouchableOpacity`
+    flex:1;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #abc;
+    border-radius: 7px;
+    width: 100%;
+`;

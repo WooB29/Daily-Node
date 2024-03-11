@@ -12,8 +12,7 @@ pool.on('connect', (client) => {
         CREATE TABLE IF NOT EXISTS member (
             email VARCHAR(255) PRIMARY KEY,
             password VARCHAR(255) not null,
-            name VARCHAR(255) not null,
-            authtoken VARCHAR(5000) null
+            name VARCHAR(255) not null
         )
     `).catch(err => console.error('Error creating member table:', err));
 
@@ -43,30 +42,31 @@ pool.on('connect', (client) => {
     `).catch(err => console.error('Error creating token table:', err));
 
     client.query(`
-        CREATE TABLE IF NOT EXISTS MEMBER_SUBJECT (
+        CREATE TABLE IF NOT EXISTS member_subject(
             id SERIAL PRIMARY KEY,
             member_email VARCHAR(255),
-            subject VARCHAR(255),
-            FOREIGN KEY (member_email) REFERENCES member(email)
+            subject_id INTEGER,
+            FOREIGN KEY (member_email) REFERENCES member(email),
+            FOREIGN KEY (subject_id) REFERENCES subject(id)
         )
-    `).catch(err => console.error('Error creating member_subject table:'+err));
+    `).catch(err => console.error('Error creating member_subject table:', err));
 
     client.query(`
-        CREATE TABLE IF NOT EXISTS SUBJECT_STUDYLIST(
+        CREATE TABLE IF NOT EXISTS subject(
             id SERIAL PRIMARY KEY,
-            title VARCHAR(255),
+            name varchar(255) NOT NULL
+        )
+    `).catch(err => console.error('Error creating subject table:', err));
+
+    client.query(`
+        CREATE TABLE IF NOT EXISTS subject_studyList(
+            id SERIAL PRIMARY KEY,
+            title VARCHAR(255) not null,
             content VARCHAR(255),
-            subject_id intiger,
+            subject_id INTEGER,
             FOREIGN KEY (subject_id) REFERENCES subject(id)
         )
     `).catch(err => console.error('Error creating subject_studylist table:'+err));
-
-    client.query(`
-        CREATE TABLE IF NOT EXISTS MEMBER_STUDYLIST(
-            id SERIAL PRIMARY KEY,
-            
-        )
-    `).catch(err => console.error('Error creating member_studylist table:'+err));
 });
 
 pool.on('error', () =>{
