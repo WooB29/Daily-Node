@@ -1,12 +1,12 @@
 import React, {useState, useRef, useEffect } from "react";
-import styled from "styled-components/native";
 import DropDownPicker from "react-native-dropdown-picker";
 import Input from '../components/input';
 import Button from '../components/button';
 import { Container } from "../components/container";
 import { TextInput } from "react-native";
-import { getSubjectList } from "../utils/list";
+import { getSubjectList, uploadList } from "../utils/list";
 import { ErrorText } from '../components/text';
+
 
 const AddList = ({navigation}) => {
     const [title, setTitle] = useState('');
@@ -19,37 +19,44 @@ const AddList = ({navigation}) => {
     const [newSubject, setNewSubject] = useState('');
 
     const titleRef = useRef();
+    const newSubjectRef = useRef();
     const didMountRef = useRef();
 
     useEffect(() => {
         if(didMountRef.current){
-            if(!title){
-                setErrorMessage('Please enter your title.');
+            let _errorMessage = '';
+            if(value !== 'self' ? false : !newSubject ? true : false){
+                _errorMessage = 'Please enter subject name.';
             }
+            else if(!title){
+                _errorMessage = 'Please enter title.';
+            }
+            else{
+                _errorMessage = '';
+            }
+            setErrorMessage(_errorMessage);
         } else {
             didMountRef.current = true;
         }
-    }, [title, errorMessage]);
+    }, [newSubject, title, errorMessage]);
 
     useEffect(() => {
+        let valueCheck = value !== 'self' ? true : !newSubject ? false : true;
         setDisabled(
-            !(title && !errorMessage)
+            !(valueCheck && title && !errorMessage)
         );
-    }, [title, errorMessage]);
+    }, [newSubject, title, errorMessage]);
 
     useEffect( () => {
         const getData = async () => {
             try{
                 const data = await getSubjectList(navigation);
                 const newDropItem = data.map(subject => ({
-                    label: subject.subject_name,
-                    value: subject.id.toString(),
+                    label: subject.name,
+                    value: subject.name,
                 }));
                 newDropItem.push({ label: 'self', value: 'self' });
                 setDropItem(newDropItem);
-                console.log('newDropItem : '+newDropItem);
-                console.log('value : '+dropItem.toString());
-                console.log('value1 : '+dropItem[0]);
             }
             catch(err){
                 console.log(err);
@@ -65,11 +72,17 @@ const AddList = ({navigation}) => {
 
 
     const _onPressAddList = () => {
-        console.log('onpress add list');
+        let subjectData = newSubject;
+        if(subjectData === ''){
+            subjectData = value;
+        }
+        uploadList(subjectData, title, content, navigation);
     }
-    const _onChangeValue = (value) => {
-        console.log('value : '+value);
+
+    const _onChangeValue = () => {
+        setNewSubject('');
     };
+
 
     return(
         <Container>
@@ -81,33 +94,41 @@ const AddList = ({navigation}) => {
                 setValue={setValue}
                 onChangeValue={_onChangeValue}
             />
-            <TextInput 
-                editable={dropItem.value === self ? false : true}
+            <TextInput
+                editable={value === 'self' ? true : false}
                 value={newSubject}
-                onChange={text => setNewSubject(text)}
+                onChangeText={text => setNewSubject(text)}
                 style={{
                     marginTop: 5,
-                    padding: 10, 
+                    padding: 10,
                     borderWidth: 1,
                     borderColor: 'black',
-                    backgroundColor: 'white',
+                    backgroundColor: value === 'self' ? 'white' : '#333',
                     width: '100%',
                     borderRadius: 7,
                 }}
+                onSubmitEditing={() => {
+                    setNewSubject(newSubject);
+                    newSubjectRef.current.focus();
+                }}
+                onBlur={() => setNewSubject(newSubject)}
+                retrunKeyType="next"
             />
-            <Input 
+            <Input
+                ref={newSubjectRef} 
                 label="Title"
                 value={title}
                 onChangeText={text => setTitle(text)}
                 onSubmitEditing={() => {
-                    setTitle(title.trim());
+                    setTitle(title);
                     titleRef.current.focus();
                 }}
-                onBlur={() => setTitle(title.trim())}
+                onBlur={() => setTitle(title)}
                 placeholder="Title"
                 retrunKeyType="next"
             />
             <TextInput
+                ref={titleRef}
                 editable
                 multiline
                 numberOfLines={7}

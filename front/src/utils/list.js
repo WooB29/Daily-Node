@@ -29,7 +29,6 @@ export const getStudyList = async (navigation) => {
             navigation.navigate('SignInPage');
             return;
         }
-        console.log('response.data : '+response.data);
         return response.data;
         
     }
@@ -56,10 +55,44 @@ export const getSubjectList = async (navigation) => {
             navigation.navigate('SignInPage');
             return;
         }
-        console.log('response.data : '+response.data);
         return response.data;
     }
     catch(err){
         console.error('get-err : '+err);
     }
 };
+
+export const uploadList = async (subjectData, title, content, navigation) => {
+    try{
+        const Token = await getToken(navigation);
+        if (!Token) {
+            return;
+        }
+
+        const response = await axios.post(`${SERVER_URL}/uploadList`, {
+                subject: subjectData,
+                title: title,
+                content: content
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${Token.accessToken}`,
+                }
+            }
+        );
+        if(response.status === 401){
+            navigation.navigate('SignInPage');
+            return;
+        }
+        console.log('response : '+response);
+        navigation.goBack();
+    }
+    catch(err){
+        console.error('add-err : '+err);
+    }
+};
+
+export const searchList = async (subject, navigation) => {
+
+}

@@ -23,10 +23,15 @@ export const ListContainer = styled.View`
 `;
 
 export const TouchContainer = styled.TouchableOpacity`
-    flex:1;
-    padding: 10px;
-    margin-bottom: 5px;
-    background-color: #abc;
-    border-radius: 7px;
+    display: flex;
+    padding: 15px;
+    margin: 2px 0;
+    background-color: #caa;
+    border-radius: 5px;
     width: 100%;
 `;
+
+export const TouchableIcon = styled.TouchableOpacity`
+
+`;
+

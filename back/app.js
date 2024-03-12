@@ -27,6 +27,8 @@ app.delete('/todoDelete', todo.todoDelete);
 
 app.get('/myStudyList', list.getLists);
 app.get('/mySubjectList', list.mySubjectList);
+app.post('/uploadList', list.uploadList);
+app.post('/searchList',list.searchList);
 
 app.listen((port), () => {
     console.log(`server started at ${port}`);

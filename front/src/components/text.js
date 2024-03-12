@@ -9,6 +9,7 @@ export const TodoText = styled.Text`
 export const StudyText = styled.Text`
     font-size: 15px;
     color: black;
+    
 `;
 
 export const ErrorText = styled.Text`
