@@ -11,14 +11,14 @@ const getToken = async (navigation) => {
     return Token;
 }
 
-export const getStudyList = async (navigation) => {
+export const getStudyList = async (name, navigation) => {
     try{
         const Token = await getToken(navigation);
         if (!Token) {
             return;
         }
-
-        const response = await axios.get(`${SERVER_URL}/myStudyList`, {
+        
+        const response = await axios.get(`${SERVER_URL}/myStudyList/${name}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Token.accessToken}`,
@@ -85,7 +85,6 @@ export const uploadList = async (subjectData, title, content, navigation) => {
             navigation.navigate('SignInPage');
             return;
         }
-        console.log('response : '+response);
         navigation.goBack();
     }
     catch(err){
@@ -93,6 +92,28 @@ export const uploadList = async (subjectData, title, content, navigation) => {
     }
 };
 
-export const searchList = async (subject, navigation) => {
+export const deleteList = async (id, name, navigation) => {
+    console.log('press delete : '+id);
+    try{
+        const Token = await getToken(navigation);
+        if (!Token) {
+            return;
+        }
 
+        const response = await axios.delete(`${SERVER_URL}/deleteList/${id}/${name}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${Token.accessToken}`,
+            }
+        });
+
+        if(response.status === 401){
+            navigation.navigate('SignInPage');
+            return;
+        }
+        console.log('response : '+response.data.success);
+    }
+    catch(err){
+        console.error('delete-err : '+err);
+    }
 }

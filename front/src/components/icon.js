@@ -33,3 +33,15 @@ export const AddIcon = ({onPress}) => {
         />
     );
 };
+
+export const ListIcon = ({ contentList, kid }) => {
+    // const iconName = contentList[kid] ? 'arrow-drop-down' : 'arrow-drop-up';
+    const iconName = contentList[kid] ? 'keyboard-arrow-down' : 'keyboard-arrow-up';
+    return(
+        <MaterialIcons
+            name={iconName}
+            size={28}
+        />
+
+    );
+};

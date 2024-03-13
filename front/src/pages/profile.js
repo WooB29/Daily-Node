@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Container } from "../components/container";
 import Button from "../components/button";
+import Input from "../components/input";
 
 const Profile = ({navigation}) => {
 
@@ -16,10 +17,19 @@ const Profile = ({navigation}) => {
 
     return(
         <Container>
+            <Input 
+                label='이메일'
+            />
+            <Input
+                label='이름'
+            />
+            <Button
+                title='정보 수정'
+            />
             <Button 
                 title='로그아웃'
                 onPress={_onPressLogOut}
-                isFilled={true}
+                isFilled={false}
                 disabled={false}
             />
         </Container>

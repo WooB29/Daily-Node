@@ -25,10 +25,10 @@ app.post('/uploadtodo', todo.uploadTodo);
 app.patch('/todoDone/:id', todo.todoDone);
 app.delete('/todoDelete', todo.todoDelete);
 
-app.get('/myStudyList', list.getLists);
+app.get('/myStudyList/:name', list.getLists);
 app.get('/mySubjectList', list.mySubjectList);
 app.post('/uploadList', list.uploadList);
-app.post('/searchList',list.searchList);
+app.delete('/deleteList/:id/:name', list.deleteList);
 
 app.listen((port), () => {
     console.log(`server started at ${port}`);

@@ -1,15 +1,14 @@
 import styled from "styled-components/native";
 
 export const TodoText = styled.Text`
-    font-size: 15px;
+    font-size: 17px;
     text-decoration: ${({done}) => done ? 'line-through' : 'none' };
-    color: ${({done}) => done? 'red' : 'black'};
+    color: ${({done}) => done? '#C44F6F' : '#fff'};
 `;
 
 export const StudyText = styled.Text`
     font-size: 15px;
     color: black;
-    
 `;
 
 export const ErrorText = styled.Text`

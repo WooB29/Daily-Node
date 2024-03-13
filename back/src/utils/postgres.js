@@ -54,7 +54,7 @@ pool.on('connect', (client) => {
     client.query(`
         CREATE TABLE IF NOT EXISTS subject(
             id SERIAL PRIMARY KEY,
-            name varchar(255) NOT NULL
+            name varchar(255) UNIQUE NOT NULL
         )
     `).catch(err => console.error('Error creating subject table:', err));
 

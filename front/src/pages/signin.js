@@ -1,18 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import styled from 'styled-components/native';
 import Input from '../components/input';
 import Button from '../components/button';
 import { getTokens } from "../utils/token";
+import { Container } from '../components/container';
 
-const Container = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items : center;
-    background-color: "#FFF";
-    padding: 20px;
-`;
 
 const SignIn = ({navigation}) => {
     const [email, setEmail] = useState('');

@@ -1,28 +1,10 @@
 import React, {useState, useRef, useEffect } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import styled from "styled-components/native";
 import Input from '../components/input';
 import Button from '../components/button';
 import {signup} from '../utils/user';
-
-const Container = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    background-color: '#FFF';
-    padding : 40px 20px;
-`;
-
-
-const ErrorText = styled.Text`
-    align-items: flex-start;
-    font-weight: bold;
-    width: 100%;
-    height: 20px;
-    margin-bottom: 10px;
-    line-height: 20px;
-    color: red;
-`;
+import { Container } from "../components/container";
+import { ErrorText } from "../components/text";
 
 const SignUp = ({navigation}) => {
     const [name, setName] = useState('');
@@ -76,7 +58,7 @@ const SignUp = ({navigation}) => {
     }
 
     return(
-        <KeyboardAwareScrollView extraScrollHeight={20}>
+        <KeyboardAwareScrollView extraScrollHeight={20} style={{backgroundColor:'#fff'}}>
             <Container>
                 <Input 
                     label="Name"

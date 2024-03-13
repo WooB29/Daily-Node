@@ -103,7 +103,7 @@ const AddList = ({navigation}) => {
                     padding: 10,
                     borderWidth: 1,
                     borderColor: 'black',
-                    backgroundColor: value === 'self' ? 'white' : '#333',
+                    backgroundColor: value === 'self' ? 'white' : '#AEAAAA',
                     width: '100%',
                     borderRadius: 7,
                 }}

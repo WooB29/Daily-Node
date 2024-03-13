@@ -21670,3 +21670,525 @@
 2024/03/12 14:53:21 [notice] 1#1: OS: Linux 5.15.133.1-microsoft-standard-WSL2
 2024/03/12 14:53:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
 2024/03/12 14:53:21 [notice] 1#1: start worker processes
+2024/03/12 14:53:21 [notice] 1#1: start worker process 28
+2024/03/12 14:53:21 [notice] 1#1: start worker process 29
+2024/03/12 14:53:21 [notice] 1#1: start worker process 30
+2024/03/12 14:53:21 [notice] 1#1: start worker process 31
+2024/03/12 14:53:21 [notice] 1#1: start worker process 32
+2024/03/12 14:53:21 [notice] 1#1: start worker process 33
+2024/03/12 14:53:21 [notice] 1#1: start worker process 34
+2024/03/12 14:53:21 [notice] 1#1: start worker process 35
+2024/03/12 14:53:21 [notice] 1#1: start worker process 36
+2024/03/12 14:53:21 [notice] 1#1: start worker process 37
+2024/03/12 14:53:21 [notice] 1#1: start worker process 38
+2024/03/12 14:53:21 [notice] 1#1: start worker process 39
+2024/03/12 14:53:21 [notice] 1#1: start worker process 40
+2024/03/12 14:53:21 [notice] 1#1: start worker process 41
+2024/03/12 14:53:21 [notice] 1#1: start worker process 42
+2024/03/12 14:53:21 [notice] 1#1: start worker process 43
+2024/03/12 18:33:35 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/03/12 18:33:35 [notice] 30#30: gracefully shutting down
+2024/03/12 18:33:35 [notice] 31#31: gracefully shutting down
+2024/03/12 18:33:35 [notice] 29#29: gracefully shutting down
+2024/03/12 18:33:35 [notice] 28#28: gracefully shutting down
+2024/03/12 18:33:35 [notice] 32#32: gracefully shutting down
+2024/03/12 18:33:35 [notice] 30#30: exiting
+2024/03/12 18:33:35 [notice] 34#34: gracefully shutting down
+2024/03/12 18:33:35 [notice] 31#31: exiting
+2024/03/12 18:33:35 [notice] 35#35: gracefully shutting down
+2024/03/12 18:33:35 [notice] 33#33: gracefully shutting down
+2024/03/12 18:33:35 [notice] 38#38: gracefully shutting down
+2024/03/12 18:33:35 [notice] 36#36: gracefully shutting down
+2024/03/12 18:33:35 [notice] 41#41: gracefully shutting down
+2024/03/12 18:33:35 [notice] 39#39: gracefully shutting down
+2024/03/12 18:33:35 [notice] 43#43: gracefully shutting down
+2024/03/12 18:33:35 [notice] 37#37: gracefully shutting down
+2024/03/12 18:33:35 [notice] 40#40: gracefully shutting down
+2024/03/12 18:33:35 [notice] 29#29: exiting
+2024/03/12 18:33:35 [notice] 42#42: gracefully shutting down
+2024/03/12 18:33:35 [notice] 32#32: exiting
+2024/03/12 18:33:35 [notice] 28#28: exiting
+2024/03/12 18:33:35 [notice] 30#30: exit
+2024/03/12 18:33:35 [notice] 31#31: exit
+2024/03/12 18:33:35 [notice] 34#34: exiting
+2024/03/12 18:33:35 [notice] 33#33: exiting
+2024/03/12 18:33:35 [notice] 35#35: exiting
+2024/03/12 18:33:35 [notice] 39#39: exiting
+2024/03/12 18:33:35 [notice] 38#38: exiting
+2024/03/12 18:33:35 [notice] 36#36: exiting
+2024/03/12 18:33:35 [notice] 41#41: exiting
+2024/03/12 18:33:35 [notice] 43#43: exiting
+2024/03/12 18:33:35 [notice] 36#36: exit
+2024/03/12 18:33:35 [notice] 29#29: exit
+2024/03/12 18:33:35 [notice] 37#37: exiting
+2024/03/12 18:33:35 [notice] 32#32: exit
+2024/03/12 18:33:35 [notice] 40#40: exiting
+2024/03/12 18:33:35 [notice] 28#28: exit
+2024/03/12 18:33:35 [notice] 42#42: exiting
+2024/03/12 18:33:35 [notice] 33#33: exit
+2024/03/12 18:33:35 [notice] 34#34: exit
+2024/03/12 18:33:35 [notice] 39#39: exit
+2024/03/12 18:33:35 [notice] 35#35: exit
+2024/03/12 18:33:35 [notice] 38#38: exit
+2024/03/12 18:33:35 [notice] 43#43: exit
+2024/03/12 18:33:35 [notice] 41#41: exit
+2024/03/12 18:33:35 [notice] 37#37: exit
+2024/03/12 18:33:35 [notice] 40#40: exit
+2024/03/12 18:33:35 [notice] 42#42: exit
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2024/03/12 18:33:35 [notice] 1#1: worker process 29 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 30 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 31 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 33 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 36 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2024/03/12 18:33:35 [notice] 1#1: worker process 34 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 37 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 38 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 39 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 40 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 41 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 43 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2024/03/12 18:33:35 [notice] 1#1: worker process 28 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 32 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: worker process 35 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2024/03/12 18:33:35 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2024/03/12 18:33:35 [notice] 1#1: worker process 42 exited with code 0
+2024/03/12 18:33:35 [notice] 1#1: exit
+2024/03/13 06:33:48 [notice] 1#1: using the "epoll" event method
+2024/03/13 06:33:48 [notice] 1#1: nginx/1.25.3
+2024/03/13 06:33:48 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/03/13 06:33:48 [notice] 1#1: OS: Linux 5.15.133.1-microsoft-standard-WSL2
+2024/03/13 06:33:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/03/13 06:33:48 [notice] 1#1: start worker processes
+2024/03/13 06:33:48 [notice] 1#1: start worker process 28
+2024/03/13 06:33:48 [notice] 1#1: start worker process 29
+2024/03/13 06:33:48 [notice] 1#1: start worker process 30
+2024/03/13 06:33:48 [notice] 1#1: start worker process 31
+2024/03/13 06:33:48 [notice] 1#1: start worker process 32
+2024/03/13 06:33:48 [notice] 1#1: start worker process 33
+2024/03/13 06:33:48 [notice] 1#1: start worker process 34
+2024/03/13 06:33:48 [notice] 1#1: start worker process 35
+2024/03/13 06:33:48 [notice] 1#1: start worker process 36
+2024/03/13 06:33:48 [notice] 1#1: start worker process 37
+2024/03/13 06:33:48 [notice] 1#1: start worker process 38
+2024/03/13 06:33:48 [notice] 1#1: start worker process 39
+2024/03/13 06:33:48 [notice] 1#1: start worker process 40
+2024/03/13 06:33:48 [notice] 1#1: start worker process 41
+2024/03/13 06:33:48 [notice] 1#1: start worker process 42
+2024/03/13 06:33:48 [notice] 1#1: start worker process 43
+2024/03/13 07:13:23 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/03/13 07:13:23 [notice] 32#32: gracefully shutting down
+2024/03/13 07:13:23 [notice] 31#31: gracefully shutting down
+2024/03/13 07:13:23 [notice] 30#30: gracefully shutting down
+2024/03/13 07:13:23 [notice] 28#28: gracefully shutting down
+2024/03/13 07:13:23 [notice] 29#29: gracefully shutting down
+2024/03/13 07:13:23 [notice] 34#34: gracefully shutting down
+2024/03/13 07:13:23 [notice] 33#33: gracefully shutting down
+2024/03/13 07:13:23 [notice] 36#36: gracefully shutting down
+2024/03/13 07:13:23 [notice] 35#35: gracefully shutting down
+2024/03/13 07:13:23 [notice] 37#37: gracefully shutting down
+2024/03/13 07:13:23 [notice] 39#39: gracefully shutting down
+2024/03/13 07:13:23 [notice] 40#40: gracefully shutting down
+2024/03/13 07:13:23 [notice] 38#38: gracefully shutting down
+2024/03/13 07:13:23 [notice] 42#42: gracefully shutting down
+2024/03/13 07:13:23 [notice] 31#31: exiting
+2024/03/13 07:13:23 [notice] 41#41: gracefully shutting down
+2024/03/13 07:13:23 [notice] 43#43: gracefully shutting down
+2024/03/13 07:13:23 [notice] 32#32: exiting
+2024/03/13 07:13:23 [notice] 30#30: exiting
+2024/03/13 07:13:23 [notice] 28#28: exiting
+2024/03/13 07:13:23 [notice] 29#29: exiting
+2024/03/13 07:13:23 [notice] 34#34: exiting
+2024/03/13 07:13:23 [notice] 33#33: exiting
+2024/03/13 07:13:23 [notice] 28#28: exit
+2024/03/13 07:13:23 [notice] 36#36: exiting
+2024/03/13 07:13:23 [notice] 37#37: exiting
+2024/03/13 07:13:23 [notice] 35#35: exiting
+2024/03/13 07:13:23 [notice] 39#39: exiting
+2024/03/13 07:13:23 [notice] 40#40: exiting
+2024/03/13 07:13:23 [notice] 42#42: exiting
+2024/03/13 07:13:23 [notice] 38#38: exiting
+2024/03/13 07:13:23 [notice] 31#31: exit
+2024/03/13 07:13:23 [notice] 32#32: exit
+2024/03/13 07:13:23 [notice] 30#30: exit
+2024/03/13 07:13:23 [notice] 41#41: exiting
+2024/03/13 07:13:23 [notice] 43#43: exiting
+2024/03/13 07:13:23 [notice] 29#29: exit
+2024/03/13 07:13:23 [notice] 34#34: exit
+2024/03/13 07:13:23 [notice] 33#33: exit
+2024/03/13 07:13:23 [notice] 36#36: exit
+2024/03/13 07:13:23 [notice] 37#37: exit
+2024/03/13 07:13:23 [notice] 35#35: exit
+2024/03/13 07:13:23 [notice] 39#39: exit
+2024/03/13 07:13:23 [notice] 40#40: exit
+2024/03/13 07:13:23 [notice] 42#42: exit
+2024/03/13 07:13:23 [notice] 38#38: exit
+2024/03/13 07:13:23 [notice] 41#41: exit
+2024/03/13 07:13:23 [notice] 43#43: exit
+2024/03/13 07:13:23 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2024/03/13 07:13:23 [notice] 1#1: worker process 29 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 32 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:13:23 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2024/03/13 07:13:23 [notice] 1#1: worker process 28 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 31 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 33 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 34 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 36 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 37 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 40 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 41 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 42 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:13:23 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2024/03/13 07:13:23 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2024/03/13 07:13:23 [notice] 1#1: worker process 35 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 38 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 43 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:13:23 [notice] 1#1: signal 17 (SIGCHLD) received from 38
+2024/03/13 07:13:23 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2024/03/13 07:13:23 [notice] 1#1: worker process 30 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: worker process 39 exited with code 0
+2024/03/13 07:13:23 [notice] 1#1: exit
+2024/03/13 07:18:55 [notice] 1#1: using the "epoll" event method
+2024/03/13 07:18:55 [notice] 1#1: nginx/1.25.3
+2024/03/13 07:18:55 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/03/13 07:18:55 [notice] 1#1: OS: Linux 5.15.133.1-microsoft-standard-WSL2
+2024/03/13 07:18:55 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/03/13 07:18:55 [notice] 1#1: start worker processes
+2024/03/13 07:18:55 [notice] 1#1: start worker process 28
+2024/03/13 07:18:55 [notice] 1#1: start worker process 29
+2024/03/13 07:18:55 [notice] 1#1: start worker process 30
+2024/03/13 07:18:55 [notice] 1#1: start worker process 31
+2024/03/13 07:18:55 [notice] 1#1: start worker process 32
+2024/03/13 07:18:55 [notice] 1#1: start worker process 33
+2024/03/13 07:18:55 [notice] 1#1: start worker process 34
+2024/03/13 07:18:55 [notice] 1#1: start worker process 35
+2024/03/13 07:18:55 [notice] 1#1: start worker process 36
+2024/03/13 07:18:55 [notice] 1#1: start worker process 37
+2024/03/13 07:18:55 [notice] 1#1: start worker process 38
+2024/03/13 07:18:55 [notice] 1#1: start worker process 39
+2024/03/13 07:18:55 [notice] 1#1: start worker process 40
+2024/03/13 07:18:55 [notice] 1#1: start worker process 41
+2024/03/13 07:18:55 [notice] 1#1: start worker process 42
+2024/03/13 07:18:55 [notice] 1#1: start worker process 43
+2024/03/13 07:19:50 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/03/13 07:19:50 [notice] 28#28: gracefully shutting down
+2024/03/13 07:19:50 [notice] 36#36: gracefully shutting down
+2024/03/13 07:19:50 [notice] 29#29: gracefully shutting down
+2024/03/13 07:19:50 [notice] 30#30: gracefully shutting down
+2024/03/13 07:19:50 [notice] 32#32: gracefully shutting down
+2024/03/13 07:19:50 [notice] 31#31: gracefully shutting down
+2024/03/13 07:19:50 [notice] 33#33: gracefully shutting down
+2024/03/13 07:19:50 [notice] 35#35: gracefully shutting down
+2024/03/13 07:19:50 [notice] 33#33: exiting
+2024/03/13 07:19:50 [notice] 34#34: gracefully shutting down
+2024/03/13 07:19:50 [notice] 39#39: gracefully shutting down
+2024/03/13 07:19:50 [notice] 37#37: gracefully shutting down
+2024/03/13 07:19:50 [notice] 40#40: gracefully shutting down
+2024/03/13 07:19:50 [notice] 38#38: gracefully shutting down
+2024/03/13 07:19:50 [notice] 42#42: gracefully shutting down
+2024/03/13 07:19:50 [notice] 43#43: gracefully shutting down
+2024/03/13 07:19:50 [notice] 41#41: gracefully shutting down
+2024/03/13 07:19:50 [notice] 28#28: exiting
+2024/03/13 07:19:50 [notice] 36#36: exiting
+2024/03/13 07:19:50 [notice] 29#29: exiting
+2024/03/13 07:19:50 [notice] 30#30: exiting
+2024/03/13 07:19:50 [notice] 32#32: exiting
+2024/03/13 07:19:50 [notice] 31#31: exiting
+2024/03/13 07:19:50 [notice] 35#35: exiting
+2024/03/13 07:19:50 [notice] 33#33: exit
+2024/03/13 07:19:50 [notice] 34#34: exiting
+2024/03/13 07:19:50 [notice] 39#39: exiting
+2024/03/13 07:19:50 [notice] 37#37: exiting
+2024/03/13 07:19:50 [notice] 40#40: exiting
+2024/03/13 07:19:50 [notice] 38#38: exiting
+2024/03/13 07:19:50 [notice] 42#42: exiting
+2024/03/13 07:19:50 [notice] 43#43: exiting
+2024/03/13 07:19:50 [notice] 41#41: exiting
+2024/03/13 07:19:50 [notice] 28#28: exit
+2024/03/13 07:19:50 [notice] 36#36: exit
+2024/03/13 07:19:50 [notice] 29#29: exit
+2024/03/13 07:19:50 [notice] 30#30: exit
+2024/03/13 07:19:50 [notice] 32#32: exit
+2024/03/13 07:19:50 [notice] 31#31: exit
+2024/03/13 07:19:50 [notice] 35#35: exit
+2024/03/13 07:19:50 [notice] 34#34: exit
+2024/03/13 07:19:50 [notice] 39#39: exit
+2024/03/13 07:19:50 [notice] 37#37: exit
+2024/03/13 07:19:50 [notice] 40#40: exit
+2024/03/13 07:19:50 [notice] 38#38: exit
+2024/03/13 07:19:50 [notice] 42#42: exit
+2024/03/13 07:19:50 [notice] 43#43: exit
+2024/03/13 07:19:50 [notice] 41#41: exit
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2024/03/13 07:19:50 [notice] 1#1: worker process 36 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2024/03/13 07:19:50 [notice] 1#1: worker process 29 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 30 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 32 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 34 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 40 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 43 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2024/03/13 07:19:50 [notice] 1#1: worker process 31 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 33 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 39 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2024/03/13 07:19:50 [notice] 1#1: worker process 28 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 35 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 38 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 41 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: worker process 42 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2024/03/13 07:19:50 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2024/03/13 07:19:50 [notice] 1#1: worker process 37 exited with code 0
+2024/03/13 07:19:50 [notice] 1#1: exit
+2024/03/13 07:20:03 [notice] 1#1: using the "epoll" event method
+2024/03/13 07:20:03 [notice] 1#1: nginx/1.25.3
+2024/03/13 07:20:03 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/03/13 07:20:03 [notice] 1#1: OS: Linux 5.15.133.1-microsoft-standard-WSL2
+2024/03/13 07:20:03 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/03/13 07:20:03 [notice] 1#1: start worker processes
+2024/03/13 07:20:03 [notice] 1#1: start worker process 28
+2024/03/13 07:20:03 [notice] 1#1: start worker process 29
+2024/03/13 07:20:03 [notice] 1#1: start worker process 30
+2024/03/13 07:20:03 [notice] 1#1: start worker process 31
+2024/03/13 07:20:03 [notice] 1#1: start worker process 32
+2024/03/13 07:20:03 [notice] 1#1: start worker process 33
+2024/03/13 07:20:03 [notice] 1#1: start worker process 34
+2024/03/13 07:20:03 [notice] 1#1: start worker process 35
+2024/03/13 07:20:03 [notice] 1#1: start worker process 36
+2024/03/13 07:20:03 [notice] 1#1: start worker process 37
+2024/03/13 07:20:03 [notice] 1#1: start worker process 38
+2024/03/13 07:20:03 [notice] 1#1: start worker process 39
+2024/03/13 07:20:03 [notice] 1#1: start worker process 40
+2024/03/13 07:20:03 [notice] 1#1: start worker process 41
+2024/03/13 07:20:03 [notice] 1#1: start worker process 42
+2024/03/13 07:20:03 [notice] 1#1: start worker process 43
+2024/03/13 07:33:19 [error] 34#34: *17 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 07:33:22 [error] 32#32: *13 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 07:33:22 [error] 33#33: *14 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 07:33:26 [error] 30#30: *9 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 07:33:26 [error] 31#31: *10 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 07:33:32 [error] 30#30: *9 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.6:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 07:33:32 [error] 31#31: *10 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.6:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 07:33:32 [error] 33#33: *14 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.6:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 07:33:32 [error] 32#32: *13 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.6:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 07:33:32 [error] 31#31: *10 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://node/myStudyList/All", host: "10.0.2.2"
+2024/03/13 07:33:35 [error] 34#34: *17 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.6:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 09:19:48 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/03/13 09:19:48 [notice] 28#28: gracefully shutting down
+2024/03/13 09:19:48 [notice] 29#29: gracefully shutting down
+2024/03/13 09:19:48 [notice] 30#30: gracefully shutting down
+2024/03/13 09:19:48 [notice] 31#31: gracefully shutting down
+2024/03/13 09:19:48 [notice] 33#33: gracefully shutting down
+2024/03/13 09:19:48 [notice] 31#31: exiting
+2024/03/13 09:19:48 [notice] 35#35: gracefully shutting down
+2024/03/13 09:19:48 [notice] 37#37: gracefully shutting down
+2024/03/13 09:19:48 [notice] 32#32: gracefully shutting down
+2024/03/13 09:19:48 [notice] 36#36: gracefully shutting down
+2024/03/13 09:19:48 [notice] 34#34: gracefully shutting down
+2024/03/13 09:19:48 [notice] 39#39: gracefully shutting down
+2024/03/13 09:19:48 [notice] 41#41: gracefully shutting down
+2024/03/13 09:19:48 [notice] 40#40: gracefully shutting down
+2024/03/13 09:19:48 [notice] 38#38: gracefully shutting down
+2024/03/13 09:19:48 [notice] 42#42: gracefully shutting down
+2024/03/13 09:19:48 [notice] 43#43: gracefully shutting down
+2024/03/13 09:19:48 [notice] 28#28: exiting
+2024/03/13 09:19:48 [notice] 29#29: exiting
+2024/03/13 09:19:48 [notice] 30#30: exiting
+2024/03/13 09:19:48 [notice] 33#33: exiting
+2024/03/13 09:19:48 [notice] 31#31: exit
+2024/03/13 09:19:48 [notice] 35#35: exiting
+2024/03/13 09:19:48 [notice] 32#32: exiting
+2024/03/13 09:19:48 [notice] 36#36: exiting
+2024/03/13 09:19:48 [notice] 34#34: exiting
+2024/03/13 09:19:48 [notice] 37#37: exiting
+2024/03/13 09:19:48 [notice] 39#39: exiting
+2024/03/13 09:19:48 [notice] 41#41: exiting
+2024/03/13 09:19:48 [notice] 40#40: exiting
+2024/03/13 09:19:48 [notice] 38#38: exiting
+2024/03/13 09:19:48 [notice] 42#42: exiting
+2024/03/13 09:19:48 [notice] 28#28: exit
+2024/03/13 09:19:48 [notice] 29#29: exit
+2024/03/13 09:19:48 [notice] 30#30: exit
+2024/03/13 09:19:48 [notice] 43#43: exiting
+2024/03/13 09:19:48 [notice] 33#33: exit
+2024/03/13 09:19:48 [notice] 35#35: exit
+2024/03/13 09:19:48 [notice] 32#32: exit
+2024/03/13 09:19:48 [notice] 36#36: exit
+2024/03/13 09:19:48 [notice] 34#34: exit
+2024/03/13 09:19:48 [notice] 37#37: exit
+2024/03/13 09:19:48 [notice] 39#39: exit
+2024/03/13 09:19:48 [notice] 40#40: exit
+2024/03/13 09:19:48 [notice] 41#41: exit
+2024/03/13 09:19:48 [notice] 38#38: exit
+2024/03/13 09:19:48 [notice] 42#42: exit
+2024/03/13 09:19:48 [notice] 43#43: exit
+2024/03/13 09:19:48 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2024/03/13 09:19:48 [notice] 1#1: worker process 28 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 09:19:48 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2024/03/13 09:19:48 [notice] 1#1: worker process 33 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 35 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 43 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 09:19:48 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2024/03/13 09:19:48 [notice] 1#1: worker process 30 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 29 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 31 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 32 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 34 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 36 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 38 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 39 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 40 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 42 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 09:19:48 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2024/03/13 09:19:48 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2024/03/13 09:19:48 [notice] 1#1: worker process 37 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: worker process 41 exited with code 0
+2024/03/13 09:19:48 [notice] 1#1: exit
+2024/03/13 13:50:16 [notice] 1#1: using the "epoll" event method
+2024/03/13 13:50:16 [notice] 1#1: nginx/1.25.3
+2024/03/13 13:50:16 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/03/13 13:50:16 [notice] 1#1: OS: Linux 5.15.133.1-microsoft-standard-WSL2
+2024/03/13 13:50:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/03/13 13:50:16 [notice] 1#1: start worker processes
+2024/03/13 13:50:16 [notice] 1#1: start worker process 28
+2024/03/13 13:50:16 [notice] 1#1: start worker process 29
+2024/03/13 13:50:16 [notice] 1#1: start worker process 30
+2024/03/13 13:50:16 [notice] 1#1: start worker process 31
+2024/03/13 13:50:16 [notice] 1#1: start worker process 32
+2024/03/13 13:50:16 [notice] 1#1: start worker process 33
+2024/03/13 13:50:16 [notice] 1#1: start worker process 34
+2024/03/13 13:50:16 [notice] 1#1: start worker process 35
+2024/03/13 13:50:16 [notice] 1#1: start worker process 36
+2024/03/13 13:50:16 [notice] 1#1: start worker process 37
+2024/03/13 13:50:16 [notice] 1#1: start worker process 38
+2024/03/13 13:50:16 [notice] 1#1: start worker process 39
+2024/03/13 13:50:16 [notice] 1#1: start worker process 40
+2024/03/13 13:50:16 [notice] 1#1: start worker process 41
+2024/03/13 13:50:16 [notice] 1#1: start worker process 42
+2024/03/13 13:50:16 [notice] 1#1: start worker process 43
+2024/03/13 14:35:41 [error] 38#38: *104 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:37:51 [error] 41#41: *125 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:09 [error] 41#41: *125 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.2:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:09 [error] 42#42: *129 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.2:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:13 [error] 41#41: *125 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:13 [error] 42#42: *129 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:13 [error] 41#41: *125 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://node/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:20 [error] 40#40: *118 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.2:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:20 [error] 39#39: *116 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.2:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:23 [error] 39#39: *116 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:23 [error] 40#40: *118 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:23 [error] 41#41: *124 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.2:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:23 [error] 41#41: *124 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://node/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:26 [error] 39#39: *116 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://node/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:26 [error] 40#40: *118 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://node/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:27 [error] 40#40: *118 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://node/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:27 [error] 39#39: *116 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://node/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:43 [error] 39#39: *116 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:43 [error] 40#40: *118 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.3:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:43 [error] 41#41: *124 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.3:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:43 [error] 41#41: *124 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://node/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:45 [error] 39#39: *116 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/myStudyList/All HTTP/1.1", upstream: "http://172.22.0.2:4000/myStudyList/All", host: "10.0.2.2"
+2024/03/13 14:38:45 [error] 40#40: *118 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.2:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:45 [error] 41#41: *125 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://172.22.0.2:4000/mySubjectList", host: "10.0.2.2"
+2024/03/13 14:38:45 [error] 41#41: *125 no live upstreams while connecting to upstream, client: 172.22.0.1, server: , request: "GET /api/mySubjectList HTTP/1.1", upstream: "http://node/mySubjectList", host: "10.0.2.2"
+2024/03/13 18:01:29 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/03/13 18:01:29 [notice] 28#28: gracefully shutting down
+2024/03/13 18:01:29 [notice] 30#30: gracefully shutting down
+2024/03/13 18:01:29 [notice] 29#29: gracefully shutting down
+2024/03/13 18:01:29 [notice] 32#32: gracefully shutting down
+2024/03/13 18:01:29 [notice] 28#28: exiting
+2024/03/13 18:01:29 [notice] 30#30: exiting
+2024/03/13 18:01:29 [notice] 35#35: gracefully shutting down
+2024/03/13 18:01:29 [notice] 31#31: gracefully shutting down
+2024/03/13 18:01:29 [notice] 29#29: exiting
+2024/03/13 18:01:29 [notice] 34#34: gracefully shutting down
+2024/03/13 18:01:29 [notice] 33#33: gracefully shutting down
+2024/03/13 18:01:29 [notice] 32#32: exiting
+2024/03/13 18:01:29 [notice] 39#39: gracefully shutting down
+2024/03/13 18:01:29 [notice] 36#36: gracefully shutting down
+2024/03/13 18:01:29 [notice] 40#40: gracefully shutting down
+2024/03/13 18:01:29 [notice] 39#39: exiting
+2024/03/13 18:01:29 [notice] 39#39: exit
+2024/03/13 18:01:29 [notice] 37#37: gracefully shutting down
+2024/03/13 18:01:29 [notice] 41#41: gracefully shutting down
+2024/03/13 18:01:29 [notice] 38#38: gracefully shutting down
+2024/03/13 18:01:29 [notice] 43#43: gracefully shutting down
+2024/03/13 18:01:29 [notice] 42#42: gracefully shutting down
+2024/03/13 18:01:29 [notice] 30#30: exit
+2024/03/13 18:01:29 [notice] 35#35: exiting
+2024/03/13 18:01:29 [notice] 28#28: exit
+2024/03/13 18:01:29 [notice] 31#31: exiting
+2024/03/13 18:01:29 [notice] 29#29: exit
+2024/03/13 18:01:29 [notice] 32#32: exit
+2024/03/13 18:01:29 [notice] 36#36: exiting
+2024/03/13 18:01:29 [notice] 33#33: exiting
+2024/03/13 18:01:29 [notice] 37#37: exiting
+2024/03/13 18:01:29 [notice] 41#41: exiting
+2024/03/13 18:01:29 [notice] 43#43: exiting
+2024/03/13 18:01:29 [notice] 34#34: exiting
+2024/03/13 18:01:29 [notice] 42#42: exiting
+2024/03/13 18:01:29 [notice] 38#38: exiting
+2024/03/13 18:01:29 [notice] 35#35: exit
+2024/03/13 18:01:29 [notice] 31#31: exit
+2024/03/13 18:01:29 [notice] 40#40: exiting
+2024/03/13 18:01:29 [notice] 36#36: exit
+2024/03/13 18:01:29 [notice] 33#33: exit
+2024/03/13 18:01:29 [notice] 41#41: exit
+2024/03/13 18:01:29 [notice] 37#37: exit
+2024/03/13 18:01:29 [notice] 34#34: exit
+2024/03/13 18:01:29 [notice] 43#43: exit
+2024/03/13 18:01:29 [notice] 42#42: exit
+2024/03/13 18:01:29 [notice] 40#40: exit
+2024/03/13 18:01:29 [notice] 38#38: exit
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2024/03/13 18:01:29 [notice] 1#1: worker process 35 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2024/03/13 18:01:29 [notice] 1#1: worker process 30 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2024/03/13 18:01:29 [notice] 1#1: worker process 39 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2024/03/13 18:01:29 [notice] 1#1: worker process 28 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 29 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 32 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 31 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 33 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 36 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 37 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 41 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2024/03/13 18:01:29 [notice] 1#1: worker process 34 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 40 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 42 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: worker process 43 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: signal 29 (SIGIO) received
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2024/03/13 18:01:29 [notice] 1#1: signal 17 (SIGCHLD) received from 38
+2024/03/13 18:01:29 [notice] 1#1: worker process 38 exited with code 0
+2024/03/13 18:01:29 [notice] 1#1: exit
