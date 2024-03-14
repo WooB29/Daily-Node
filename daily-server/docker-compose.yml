@@ -14,7 +14,7 @@ services:
     volumes:
       - ./nginx/logs:/var/log/nginx
     ports:
-      - '8080:80'
+      - '81:80'
     networks:
       - daily-network
 
