@@ -74,8 +74,8 @@ services:
     networks:
       - daily-network
     environment:
-      PGADMIN_DEFAULT_EMAIL: PGADMIN_DEFAULT_EMAIL
-      PGADMIN_DEFAULT_PASSWORD: PGADMIN_DEFAULT_PASSWORD
+      PGADMIN_DEFAULT_EMAIL: pgadmin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
     env_file:
       - .env
     volumes:
