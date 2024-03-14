@@ -48,7 +48,7 @@ services:
     volumes:
       - /usr/app/node_modules
       - ./back:/usr/app
-    command: ["npm", "run", "start"]
+    command: ["npm", "start"]
 
   postgres:
     container_name: postgres-db
@@ -74,8 +74,8 @@ services:
     networks:
       - daily-network
     environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: 1234
+      PGADMIN_DEFAULT_EMAIL: PGADMIN_DEFAULT_EMAIL
+      PGADMIN_DEFAULT_PASSWORD: PGADMIN_DEFAULT_PASSWORD
     env_file:
       - .env
     volumes:
