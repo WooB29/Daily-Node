@@ -7751,3 +7751,8 @@
 172.19.0.1 - - [14/Mar/2024:07:17:52 +0000] "POST /api/login HTTP/1.1" 401 53 "-" "okhttp/4.9.2"
 172.19.0.1 - - [14/Mar/2024:07:17:58 +0000] "POST /api/login HTTP/1.1" 401 53 "-" "okhttp/4.9.2"
 172.19.0.1 - - [14/Mar/2024:07:18:15 +0000] "POST /api/login HTTP/1.1" 401 53 "-" "okhttp/4.9.2"
+172.19.0.1 - - [14/Mar/2024:12:40:47 +0000] "GET / HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Whale/3.25.232.19 Safari/537.36"
+172.19.0.1 - - [14/Mar/2024:12:40:47 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:81/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Whale/3.25.232.19 Safari/537.36"
+172.19.0.1 - - [14/Mar/2024:12:40:53 +0000] "GET /api/test HTTP/1.1" 200 16 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Whale/3.25.232.19 Safari/537.36"
+172.19.0.1 - - [14/Mar/2024:12:40:58 +0000] "GET / HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Whale/3.25.232.19 Safari/537.36"
+172.19.0.1 - - [14/Mar/2024:12:41:16 +0000] "GET / HTTP/1.1" 404 153 "-" "PostmanRuntime/7.37.0"
