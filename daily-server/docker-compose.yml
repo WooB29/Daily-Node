@@ -5,23 +5,10 @@ networks:
     driver: bridge
 
 services:
-  nginx-server:
-    container_name: nginx-server
-    restart: unless-stopped
-    build:
-      dockerfile: dev.Dockerfile
-      context: nginx
-    volumes:
-      - ./nginx/logs:/var/log/nginx
-    ports:
-      - '8080:80'
-    networks:
-      - daily-network
-
   node-back1:
     container_name: node-back1
     ports: 
-      - '4000'
+      - '4000:4000'
     networks:
       - daily-network
     build:
@@ -37,7 +24,7 @@ services:
   node-back2:
     container_name: node-back2
     ports: 
-      - '4000'
+      - '4001:4000'
     networks:
       - daily-network
     build:
