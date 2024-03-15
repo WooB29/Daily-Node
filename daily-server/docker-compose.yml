@@ -79,13 +79,12 @@ services:
     build:
       context: ./jenkins
       dockerfile: dev.Dockerfile
-    user: root
     volumes:
       - jenkins-data:/var/jenkins_home
-      - jenkins-data:/root/.ssh
+      - /var/run/docker.sock:/var/run/docker.sock
    
 
 volumes:
   postgres-data:
   pgadmin-data:
-  jenkins-data:
+  #jenkins-data:
