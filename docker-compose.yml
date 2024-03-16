@@ -11,6 +11,7 @@ services:
       - '4000:4000'
     networks:
       - daily-network
+    build: .
     image: ${DOCKER_USER_ID}/daily:latest
     volumes:
       - .:/code
