@@ -13,7 +13,8 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./dev.dockerfile
+    image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     volumes:
       - .:/code
     command: ["npm", "start"]
