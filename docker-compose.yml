@@ -12,7 +12,7 @@ services:
     networks:
       - daily-network
     build:
-      context: back
+      context: .
       dockerfile: dev.Dockerfile
     env_file:
        - .env
@@ -21,32 +21,30 @@ services:
       - ./back:/usr/app
     command: ["npm", "start"]
     
-  node-back2:
-    container_name: node-back2
-    ports: 
-      - '4001:4000'
-    networks:
-      - daily-network
-    build:
-      context: back
-      dockerfile: dev.Dockerfile
-    env_file:
-       - .env
-    volumes:
-      - /usr/app/node_modules
-      - ./back:/usr/app
-    command: ["npm", "start"]
+  # node-back2:
+  #   container_name: node-back2
+  #   ports: 
+  #     - '4001:4000'
+  #   networks:
+  #     - daily-network
+  #   build:
+  #     context: back
+  #     dockerfile: dev.Dockerfile
+  #   env_file:
+  #      - .env
+  #   volumes:
+  #     - /usr/app/node_modules
+  #     - ./back:/usr/app
+  #   command: ["npm", "start"]
 
   postgres:
+    image: postgres
     container_name: postgres-db
     restart: unless-stopped
     ports: 
       - '5432:5432'
     networks:
       - daily-network
-    build:
-      context: ./postgresDb
-      dockerfile: dev.Dockerfile
     env_file:
       - .env
     volumes:
@@ -67,24 +65,8 @@ services:
       - .env
     volumes:
       - pgadmin-data:/var/lib/pgadmin
-
-  jenkins:
-    container_name: jenkins
-    restart: unless-stopped
-    ports:
-      - '8888:8080'
-      - '50000:50000'
-    networks:
-      - daily-network
-    build:
-      context: ./jenkins
-      dockerfile: dev.Dockerfile
-    volumes:
-      - ~/jenkins:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
    
 
 volumes:
   postgres-data:
   pgadmin-data:
-  #jenkins-data:
