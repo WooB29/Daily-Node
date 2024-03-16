@@ -13,7 +13,7 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: ./dev.dockerfile
+      dockerfile: dev.dockerfile
     image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     volumes:
       - .:/code
@@ -27,7 +27,7 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: ./dev.Dockerfile
+      dockerfile: dev.Dockerfile
     image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     volumes:
       - .:/code
