@@ -11,8 +11,9 @@ services:
       - '4000:4000'
     networks:
       - daily-network
-    image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
-    
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/code
     command: ["npm", "start"]
