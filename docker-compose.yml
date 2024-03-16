@@ -11,9 +11,7 @@ services:
       - '4000:4000'
     networks:
       - daily-network
-    build: 
-      context: .
-      dockerfile: ./dev.Dockerfile
+    image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     
     volumes:
       - .:/code
