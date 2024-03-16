@@ -11,9 +11,7 @@ services:
       - '4000:4000'
     networks:
       - daily-network
-    build:
-      context: .
-      image: ${DOCKER_USER_ID}/daily:latest
+    image: ${DOCKER_USER_ID}/daily:latest
     volumes:
       - .:/code
     command: ["npm", "start"]
