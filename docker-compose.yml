@@ -13,12 +13,11 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: ./dev.Dockerfile
-    env_file:
-       - .env
+      image: ${DOCKER_USER_ID}/daily
+    production:
+      image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     volumes:
-      - /usr/app/node_modules
-      - ./:/usr/app
+      - .:/code
     command: ["npm", "start"]
     
   # node-back2:
