@@ -11,6 +11,8 @@ services:
       - '4000:4000'
     networks:
       - daily-network
+    build: 
+      context: .
     image: woob29/daily:latest
     volumes:
       - .:/code
