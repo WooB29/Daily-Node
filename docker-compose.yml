@@ -13,7 +13,8 @@ services:
       - daily-network
     build: 
       context: .
-    image: woob29/daily:latest
+      dockerfile: ./dev.Dockerfile
+    
     volumes:
       - .:/code
     command: ["npm", "start"]
