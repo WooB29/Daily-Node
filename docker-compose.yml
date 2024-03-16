@@ -13,7 +13,7 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: dev.dockerfile
+      dockerfile: dev.Dockerfile
 
     volumes:
       - .:/code
