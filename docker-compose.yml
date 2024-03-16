@@ -19,21 +19,19 @@ services:
       - .:/code
     command: ["npm", "start"]
     
-  # node-back2:
-  #   container_name: node-back2
-  #   ports: 
-  #     - '4001:4000'
-  #   networks:
-  #     - daily-network
-  #   build:
-  #     context: .
-  #     dockerfile: ./dev.Dockerfile
-  #   env_file:
-  #      - .env
-  #   volumes:
-  #     - /usr/app/node_modules
-  #     - ./:/usr/app
-  #   command: ["npm", "start"]
+  node-back2:
+    container_name: node-back2
+    ports: 
+      - '4001:4000'
+    networks:
+      - daily-network
+    build:
+      context: .
+      dockerfile: ./dev.Dockerfile
+    image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
+    volumes:
+      - .:/code
+    command: ["npm", "start"]
 
   postgres:
     image: postgres
