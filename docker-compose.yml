@@ -13,12 +13,12 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: dev.Dockerfile
+      dockerfile: ./dev.Dockerfile
     env_file:
        - .env
     volumes:
       - /usr/app/node_modules
-      - ./back:/usr/app
+      - ./:/usr/app
     command: ["npm", "start"]
     
   # node-back2:
@@ -28,13 +28,13 @@ services:
   #   networks:
   #     - daily-network
   #   build:
-  #     context: back
-  #     dockerfile: dev.Dockerfile
+  #     context: .
+  #     dockerfile: ./dev.Dockerfile
   #   env_file:
   #      - .env
   #   volumes:
   #     - /usr/app/node_modules
-  #     - ./back:/usr/app
+  #     - ./:/usr/app
   #   command: ["npm", "start"]
 
   postgres:
