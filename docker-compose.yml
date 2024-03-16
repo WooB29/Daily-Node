@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: dev.Dockerfile
-
+    image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     volumes:
       - .:/code
     command: ["npm", "start"]
@@ -28,7 +28,7 @@ services:
     build:
       context: .
       dockerfile: dev.Dockerfile
-
+    image: ${DOCKER_USER_ID}/daily:${BUILD_NUMBER}
     volumes:
       - .:/code
     command: ["npm", "start"]
