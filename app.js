@@ -19,7 +19,7 @@ app.post('/signup', user.signUp);
 app.get('/getMyInfo', user.getMyInfo);
 
 app.get('/test', (req, res) => {
-    res.status(200).json({ message: "hi" });
+    res.status(200).json({ message: "hi test" });
 });
 
 app.post('/mytodo', todo.listTodo);
