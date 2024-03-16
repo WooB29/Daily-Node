@@ -13,7 +13,7 @@ services:
       - daily-network
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
     volumes:
       - .:/code
     command: ["npm", "start"]
