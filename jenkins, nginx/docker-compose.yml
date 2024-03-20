@@ -13,3 +13,4 @@ services:
       - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
     user: root
     restart: always
+
